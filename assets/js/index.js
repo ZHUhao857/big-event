@@ -21,3 +21,11 @@ function getUserInfo (){
     })
 }
 getUserInfo();
+// 完成退出功能
+$('#logout').click(function(){
+    layer.confirm('确认退出吗',function(index){
+        layer.close();
+        localStorage.removeItem('token');
+        location.href = '/login.html';
+    })
+})
