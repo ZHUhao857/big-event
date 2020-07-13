@@ -33,9 +33,26 @@ form.verify({
         }
     },
     same: function(val){
-        var pwd = $('input[name=password]').val();
+        var pwd = $('#register input[name=password]').val();
         if(pwd !== val){
             return '两次密码不一致'
         }
     }
+})
+// 登录
+// 监听表单的提交时间
+$('#login form').on('submit',function(e){
+    e.preventDefault();
+    var data = $(this).serialize();
+    $.ajax({
+        type: 'POST',
+        url: 'http://www.liulongbin.top:3007/api/login',
+        data: data,
+        success: function(res){
+            layer.msg(res.message);
+            if(res.status === 0){
+                location.href = '/index.html'
+            }
+        }
+    })
 })
