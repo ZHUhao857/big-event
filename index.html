@@ -1,3 +1,9 @@
+<script>
+  //判断token是否存在，token不存在则跳转到login页面
+  if(localStorage.getItem('token') === null){
+    location.href = '/login.html'
+  }
+</script>
 <!DOCTYPE html>
 <html>
 <head>
