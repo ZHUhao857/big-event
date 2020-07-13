@@ -51,6 +51,7 @@ $('#login form').on('submit',function(e){
         success: function(res){
             layer.msg(res.message);
             if(res.status === 0){
+                localStorage.setItem('token',res.token)
                 location.href = '/index.html'
             }
         }
